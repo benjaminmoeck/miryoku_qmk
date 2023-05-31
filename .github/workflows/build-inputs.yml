@@ -24,6 +24,21 @@ on:
         - "QWERTY"
         - "QWERTZ"
         - "Workman"
+      extra:
+        description: 'Miryoku Extra'
+        required: false
+        default: 'ColemakDHK'
+        type: choice
+        options:
+        - "AZERTY"
+        - "BEAKL15"
+        - "Colemak"
+        - "ColemakDHK"
+        - "Dvorak"
+        - "Halmak"
+        - "QWERTY"
+        - "QWERTZ"
+        - "Workman"
       nav:
         description: 'Miryoku Nav'
         required: false
@@ -73,6 +88,7 @@ jobs:
     outputs:
       keyboard: ${{ steps.process-inputs.outputs.keyboard }}
       alphas: ${{ steps.process-inputs.outputs.alphas }}
+      extra: ${{ steps.process-inputs.outputs.extra }}
       nav: ${{ steps.process-inputs.outputs.nav }}
       clipboard: ${{ steps.process-inputs.outputs.clipboard }}
       layers: ${{ steps.process-inputs.outputs.layers }}
@@ -91,6 +107,7 @@ jobs:
           }
           set-output "keyboard" "${{ github.event.inputs.keyboard }}"
           set-output "alphas" "${{ github.event.inputs.alphas }}"
+          set-output "extra" "${{ github.event.inputs.extra }}"
           set-output "nav" "${{ github.event.inputs.nav }}"
           set-output "clipboard" "${{ github.event.inputs.clipboard }}"
           set-output "layers" "${{ github.event.inputs.layers }}"
@@ -104,6 +121,7 @@ jobs:
     with:
       keyboard: ${{ needs.process-inputs.outputs.keyboard }}
       alphas: ${{ needs.process-inputs.outputs.alphas }}
+      extra: ${{ needs.process-inputs.outputs.extra }}
       nav: ${{ needs.process-inputs.outputs.nav }}
       clipboard: ${{ needs.process-inputs.outputs.clipboard }}
       layers: ${{ needs.process-inputs.outputs.layers }}
