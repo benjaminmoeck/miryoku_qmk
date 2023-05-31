@@ -44,7 +44,7 @@ jobs:
       matrix:
         keyboard: ${{ fromJSON(inputs.keyboard) }}
         alphas: ${{ fromJSON(inputs.alphas) }}
-        extra: ${{ fromJSON(inputs.alphas) }}
+        extra: ${{ fromJSON(inputs.extra) }}
         nav: ${{ fromJSON(inputs.nav) }}
         clipboard: ${{ fromJSON(inputs.clipboard) }}
         layers: ${{ fromJSON(inputs.layers) }}
